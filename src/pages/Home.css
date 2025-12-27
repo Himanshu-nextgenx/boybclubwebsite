@@ -1,0 +1,368 @@
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/hero-bg.png') no-repeat center center/cover;
+    opacity: 0.6;
+    /* Adjust opacity as needed to make text readable */
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+/* Texture Pattern Overlay */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    /* Removed padding-top for better centering */
+    max-width: 800px;
+    /* Limit width for better readability */
+    margin: 0 auto;
+}
+
+.hero-tagline {
+    color: var(--primary);
+    letter-spacing: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.text-outline {
+    -webkit-text-stroke: 2px var(--accent);
+    color: transparent;
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: #eee;
+    margin-bottom: 40px;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Concept Section */
+.section {
+    padding: 100px 0;
+}
+
+/* Add padding to account for navbar if linking to sections */
+.section-scroll-target {
+    scroll-margin-top: 80px;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.lead-text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary);
+    padding-left: 20px;
+}
+
+.body-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.feature-item .icon {
+    color: var(--accent);
+}
+
+.concept-image-placeholder {
+    height: 400px;
+    position: relative;
+}
+
+.glow-box {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary);
+    background: rgba(212, 175, 55, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2), inset 0 0 30px rgba(212, 175, 55, 0.2);
+    border-radius: 20px;
+}
+
+/* Offerings */
+.offerings-section {
+    background-color: #0b0b0b;
+}
+
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.offering-card {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: all 0.3s;
+}
+
+.offering-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
+}
+
+.card-icon {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.offering-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.offering-card p {
+    color: var(--text-muted);
+}
+
+.price-banner {
+    background: linear-gradient(135deg, #1a0b2e, #2e0b1a);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 127, 0.2) 0%, transparent 60%);
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.price-content {
+    position: relative;
+    z-index: 5;
+}
+
+.price-banner h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 4rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.per {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.price-banner p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+/* Info Bar */
+.info-bar {
+    background: var(--primary);
+    color: #000;
+    padding: 40px 0;
+}
+
+.gap-stats {
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h4 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.divider {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 20px;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
+    .concept-grid,
+    .offerings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.quote-block {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--primary);
+    margin: 60px auto;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 900px;
+    width: 90%;
+}
